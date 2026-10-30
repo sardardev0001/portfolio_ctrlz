@@ -55,7 +55,7 @@ Browser tests run with `pnpm --dir frontend e2e` after starting an isolated back
 
 ## Deployment
 
-The intended pipeline runs on every push to `main`: CI, prebuilt backend/frontend images, an allowlisted source package, Ansible transfer, an on-server backup, reviewed migrations and HTTPS health checks. Deployment scripts retain PostgreSQL and media volumes. **The pipeline is not considered active until the GitHub repository and its production SSH secrets are configured and a real push succeeds.** Read [GitHub Actions and Ansible setup](docs/deployment/GITHUB_ACTIONS_FA.md) and the [current delivery report](docs/deployment/DELIVERY_FA.md).
+The pipeline runs on every push to `main`: CI, prebuilt backend/frontend images, an allowlisted source package, Ansible transfer, an on-server backup, reviewed migrations and HTTPS health checks. Deployment scripts retain PostgreSQL and media volumes. The public repository and its encrypted `production` environment are configured; confirm the latest run in [GitHub Actions](https://github.com/sardardev0001/portfolio_ctrlz/actions) before treating a commit as deployed. Read [GitHub Actions and Ansible operations](docs/deployment/GITHUB_ACTIONS_FA.md) and the [delivery report](docs/deployment/DELIVERY_FA.md).
 
 ## Repository map
 

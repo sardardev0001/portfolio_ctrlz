@@ -2,18 +2,18 @@
 
 ## وضعیت و پیش‌نیاز
 
-مخزن هدف: `sardardev0001/portfolio_ctrlz` با شاخهٔ `main`. تا زمانی که مخزن، Secrets و اولین اجرای موفق Workflow واقعاً تأیید نشده‌اند، انتشار خودکار فعال محسوب نمی‌شود. فایل Workflow و Playbook به‌تنهایی سرویس را به GitHub متصل نمی‌کنند.
+مخزن عمومی موجود: [sardardev0001/portfolio_ctrlz](https://github.com/sardardev0001/portfolio_ctrlz) با شاخهٔ `main`. محیط `production`، متغیر میزبان، کلید SSH اختصاصی CI و کلید تأییدشدهٔ میزبان در GitHub تنظیم شده‌اند. موفقیت هر انتشار را از [Actions](https://github.com/sardardev0001/portfolio_ctrlz/actions) و شناسهٔ Release فعال روی VPS بررسی کنید.
 
 Production موجود در `213.176.28.154` و دامنهٔ `ctrtlzweb.ir` با Volumeهای پایدار کار می‌کند. این Workflow روی هر Push به `main` اجرا می‌شود و پیش از Deploy، CI را به‌عنوان Job قابل استفادهٔ مجدد اجرا می‌کند.
 
 ## تنظیمات یک‌بارهٔ GitHub
 
-1. مخزن عمومی با نام `portfolio_ctrlz` بسازید و سورس بررسی‌شده را در شاخهٔ `main` منتشر کنید. مطمئن شوید `.env`، `.local`، بکاپ‌ها، Media، کلیدها و داده‌های شخصی در Commit نیستند.
-2. در Settings → Environments، محیط `production` را بسازید. در صورت تمایل، Branch policy را به `main` محدود کنید. برای انتشار کاملاً خودکار، Required reviewer قرار ندهید.
-3. Environment variable با نام `DEPLOY_HOST` و مقدار IP فعلی VPS تنظیم کنید.
-4. یک کلید SSH **مجزا و بدون Passphrase برای runner** بسازید، Public key آن را فقط برای حساب استقرار روی VPS ثبت و Private key را به‌صورت Secret با نام `DEPLOY_SSH_KEY` در Environment قرار دهید. کلید شخصی محلی یا رمز کنسول را در Actions نگذارید. این کلید فقط دسترسی لازم برای انتشار داشته باشد.
-5. کلید میزبان SSH را از ارتباط مورد اعتماد تأیید کنید و خط کامل `known_hosts` را به‌صورت Secret با نام `DEPLOY_SSH_HOST_KEY` ثبت کنید. مقدار را از خروجی ناشناس `ssh-keyscan` بدون تطبیق مستقل نپذیرید.
-6. اطمینان حاصل کنید `/srv/ctrlz/shared/.env.production` با مجوز `0600` روی VPS موجود است. هیچ Secret برنامه به Image یا مخزن اضافه نکنید.
+1. سورس بررسی‌شده را در شاخهٔ `main` منتشر کنید. مطمئن شوید `.env`، `.local`، بکاپ‌ها، Media، کلیدها و داده‌های شخصی در Commit نیستند.
+2. در Settings → Environments، محیط `production` را نگه دارید. برای انتشار کاملاً خودکار، Required reviewer قرار ندهید.
+3. Environment variable با نام `DEPLOY_HOST` باید IP فعلی VPS باشد.
+4. کلید SSH **مجزا و بدون Passphrase برای runner** در Secret با نام `DEPLOY_SSH_KEY` ثبت شده است. کلید عمومی با گزینهٔ `restrict` در حساب `root` فعلی VPS قرار دارد؛ Playbook برای مدیریت Release و Docker به این سطح دسترسی نیاز دارد. کلید شخصی محلی یا رمز کنسول را در Actions نگذارید.
+5. کلید میزبان SSH از ارتباط مورد اعتماد تأیید و به‌صورت Secret با نام `DEPLOY_SSH_HOST_KEY` ثبت شده است. هنگام تعویض VPS یا کلید میزبان، آن را فقط پس از تأیید مستقل به‌روز کنید.
+6. فایل `/srv/ctrlz/shared/.env.production` با مجوز `0600` روی VPS موجود است. هیچ Secret برنامه به Image یا مخزن اضافه نکنید.
 
 ## مسیر اجرا
 
@@ -27,4 +27,4 @@ Playbook در `ops/deployment/ansible/deploy.yml` قرار دارد. هر Releas
 
 ## آزمون پذیرش
 
-پس از اتصال حساب، یک Commit آزمایشی کوچک به `main` Push کنید، اجرای CI و Deploy را در Actions بررسی کنید و با `https://ctrtlzweb.ir/api/v1/health/`، صفحهٔ عمومی و پنل مدیریت صحت Release را تأیید کنید. تا زمانی که این آزمون واقعی انجام نشده، انتشار خودکار تأیید نشده است.
+برای هر Commit جدید، اجرای CI و Deploy را در Actions بررسی کنید و با `https://ctrtlzweb.ir/api/v1/health/`، صفحهٔ عمومی و پنل مدیریت صحت Release را تأیید کنید. تنها اجرای موفقِ همان Commit، انتشار خودکار آن را تأیید می‌کند.

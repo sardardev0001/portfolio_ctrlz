@@ -48,7 +48,7 @@ pnpm --dir frontend build
 
 ## انتشار
 
-گردش‌کار `deploy-production.yml` برای هر Push به `main` ابتدا CI را اجرا می‌کند، سپس دو Image را در GitHub runner می‌سازد و با Ansible به VPS می‌فرستد. اسکریپت فعلی قبل از Migration بکاپ می‌گیرد، سرویس‌ها را به‌صورت کنترل‌شده جابه‌جا می‌کند و سلامت HTTPS را بررسی می‌کند. **فعال‌شدن این مسیر وابسته به ایجاد مخزن و تنظیم کلید خصوصی CI و اثرانگشت میزبان در GitHub Environment است**؛ تا آن زمان ادعای انتشار خودکار نداریم. راهنمای کامل: [GitHub Actions و Ansible](docs/deployment/GITHUB_ACTIONS_FA.md).
+گردش‌کار `deploy-production.yml` برای هر Push به `main` ابتدا CI را اجرا می‌کند، سپس دو Image را در GitHub runner می‌سازد و با Ansible به VPS می‌فرستد. اسکریپت فعلی قبل از Migration بکاپ می‌گیرد، سرویس‌ها را به‌صورت کنترل‌شده جابه‌جا می‌کند و سلامت HTTPS را بررسی می‌کند. مخزن عمومی و Environment رمزگذاری‌شدهٔ `production` تنظیم شده‌اند؛ قبل از اینکه یک Commit را منتشرشده بدانید، نتیجهٔ [آخرین اجرای Actions](https://github.com/sardardev0001/portfolio_ctrlz/actions) را بررسی کنید. راهنمای کامل: [GitHub Actions و Ansible](docs/deployment/GITHUB_ACTIONS_FA.md).
 
 ## امنیت و داده
 

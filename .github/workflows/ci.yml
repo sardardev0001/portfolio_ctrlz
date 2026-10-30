@@ -53,7 +53,7 @@ jobs:
       - run: uv run --project backend --locked python backend/manage.py migrate && uv run --project backend --locked python backend/manage.py seed
         env: {POSTGRES_HOST: '', S3_ENDPOINT_URL: ''}
       - run: uv run --project backend --locked python backend/manage.py runserver 127.0.0.1:8000 > backend.log 2>&1 &
-        env: {POSTGRES_HOST: '', S3_ENDPOINT_URL: ''}
+        env: {POSTGRES_HOST: '', S3_ENDPOINT_URL: '', CTRLZ_LOGIN_RATE: '1000/hour'}
       - run: pnpm --dir frontend dev > frontend.log 2>&1 &
       - name: Wait for the website
         run: for i in $(seq 1 30); do curl -fsS http://127.0.0.1:3000/ >/dev/null && exit 0; sleep 2; done; exit 1

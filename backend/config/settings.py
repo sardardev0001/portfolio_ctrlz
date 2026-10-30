@@ -126,7 +126,7 @@ REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_RATES": {
         "anon": "3000/hour",
         "contact": "5/hour",
-        "login": "10/hour",
+        "login": os.getenv("CTRLZ_LOGIN_RATE", "10/hour"),
         "refresh": "60/hour",
         "analytics": "120/min",
     },

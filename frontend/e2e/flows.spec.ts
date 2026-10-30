@@ -197,7 +197,7 @@ test("admin auth and CRUD", async ({ page }) => {
     "users",
   ]) {
     await page.goto(`/admin/${resource}`);
-    await expect(page.locator(".admin-main h1")).toBeVisible();
+    await expect(page.locator(".admin-main h1").first()).toBeVisible();
     await expect(page.locator(".feedback.error")).toHaveCount(0);
   }
   await page.screenshot({

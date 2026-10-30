@@ -59,6 +59,7 @@ jobs:
         run: for i in $(seq 1 30); do curl -fsS http://127.0.0.1:3000/ >/dev/null && exit 0; sleep 2; done; exit 1
       - run: pnpm --dir frontend e2e --project=chromium --project=mobile
         env:
+          CTRLZ_QA_WRITE_TESTS: 'true'
           E2E_ADMIN_USERNAME: ctrlz-admin
           E2E_ADMIN_PASSWORD: ${{ env.SEED_ADMIN_PASSWORD }}
       - uses: actions/upload-artifact@v4

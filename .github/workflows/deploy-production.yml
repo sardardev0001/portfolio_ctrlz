@@ -39,7 +39,7 @@ jobs:
           printf '%s\n' "$DEPLOY_SSH_HOST_KEY" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
       - name: Install Ansible
-        run: pipx install 'ansible-core>=2.16,<2.17'
+        run: pipx install 'ansible-core>=2.19,<2.20'
       - name: Build backend image
         run: docker build -f backend/Dockerfile -t "ctrlz-backend:${GITHUB_SHA}" .
       - name: Build frontend image

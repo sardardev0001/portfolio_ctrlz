@@ -61,7 +61,7 @@ test("three complete real-time circular cycles in both locales and mobile/deskto
   browser,
   baseURL,
 }) => {
-  test.setTimeout(320000);
+  test.setTimeout(600000);
   const cases = [390, 1440].flatMap((width) =>
     ["fa", "en"].map((locale) => async () => {
       const context = await browser.newContext({
@@ -93,9 +93,17 @@ test("three complete real-time circular cycles in both locales and mobile/deskto
         await expect(section).toBeVisible({ timeout: 15000 });
         const capsule = section.getByRole("group");
         const list = section.locator("ul");
-        await capsule.scrollIntoViewIfNeeded();
-        await page.mouse.move(0, 0);
-        await expect(list).toHaveAttribute("data-carousel-paused", "false");
+        await page.bringToFront();
+        await expect
+          .poll(
+            async () => {
+              await capsule.scrollIntoViewIfNeeded();
+              await page.mouse.move(0, 0);
+              return list.getAttribute("data-carousel-paused");
+            },
+            { timeout: 15000 },
+          )
+          .toBe("false");
         const surface = await section.evaluate((element) => {
           const css = getComputedStyle(element);
           return {
@@ -325,14 +333,10 @@ test("three complete real-time circular cycles in both locales and mobile/deskto
       }
     }),
   );
-  // Keep the actual 72-second cycles, with two contexts at a time to avoid
-  // exhausting browser/network buffers on the Windows QA host.
+  // Keep the actual 72-second cycles. One context at a time preserves page
+  // visibility; background tabs legitimately pause the carousel.
   const results = [];
-  for (let index = 0; index < cases.length; index += 2) {
-    results.push(
-      ...(await Promise.all(cases.slice(index, index + 2).map((run) => run()))),
-    );
-  }
+  for (const run of cases) results.push(await run());
   await writeFile(
     resolve("../docs/qa/home-story-carousel/three-cycle-results.json"),
     JSON.stringify(results, null, 2) + "\n",

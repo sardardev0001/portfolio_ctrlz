@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - uses: astral-sh/setup-uv@v6
         with: {version: '0.13.1', python-version: '3.12'}
       - run: uv sync --project backend --locked
@@ -33,6 +34,7 @@ jobs:
     needs: [backend, frontend]
     steps:
       - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - uses: astral-sh/setup-uv@v6
         with: {version: '0.13.1', python-version: '3.12'}
       - uses: pnpm/action-setup@v4

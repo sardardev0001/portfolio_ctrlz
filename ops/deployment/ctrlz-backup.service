@@ -1,0 +1,14 @@
+[Unit]
+Description=CTRL.Z database and deduplicated media backup
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+UMask=0077
+Environment=CTRLZ_ROOT=/srv/ctrlz
+ExecStart=/usr/bin/bash /srv/ctrlz/current/ops/deployment/backup.sh
+TimeoutStartSec=3h
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

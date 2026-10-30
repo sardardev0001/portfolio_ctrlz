@@ -1,0 +1,29 @@
+server {
+  listen 80;
+  server_name _;
+  return 301 https://$host$request_uri;
+}
+server {
+  listen 443 ssl;
+  server_name _;
+  ssl_certificate /etc/nginx/tls/fullchain.pem;
+  ssl_certificate_key /etc/nginx/tls/privkey.pem;
+  ssl_protocols TLSv1.2 TLSv1.3;
+  ssl_session_tickets off;
+  # 1 GiB per file plus 1 MiB multipart overhead; Django enforces the exact file limit.
+  client_max_body_size 1025m;
+  client_body_timeout 3900s;
+  proxy_read_timeout 3900s;
+  proxy_send_timeout 3900s;
+  proxy_request_buffering off;
+  error_page 413 = @upload_limit;
+  location @upload_limit { default_type application/json; return 413 '{"success":false,"data":null,"error":{"code":"VIDEO_TOO_LARGE","details":null},"meta":{}}'; }
+  add_header Strict-Transport-Security "max-age=31536000" always;
+  location / {
+    proxy_pass http://frontend:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $remote_addr;
+  }
+}

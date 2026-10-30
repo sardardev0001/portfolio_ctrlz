@@ -1,0 +1,216 @@
+{
+  "state": "generated",
+  "entries": [
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_11 PM-1.png",
+      "role": "character",
+      "format": "png",
+      "width": 1086,
+      "height": 1448,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": "frontend/public/assets/home-story/character.webp",
+      "maxWidth": 870,
+      "outputWidth": 870,
+      "outputHeight": 1160,
+      "outputBytes": 202260,
+      "used": true,
+      "note": "Used by the home story section."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_12 PM-2.png",
+      "role": "cinematic",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": "frontend/public/assets/home-story/cinematic.webp",
+      "maxWidth": 720,
+      "outputWidth": 720,
+      "outputHeight": 540,
+      "outputBytes": 89502,
+      "used": true,
+      "note": "Used by the home story section."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_13 PM-3.png",
+      "role": "vlog",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": "frontend/public/assets/home-story/vlog.webp",
+      "maxWidth": 720,
+      "outputWidth": 720,
+      "outputHeight": 540,
+      "outputBytes": 88304,
+      "used": true,
+      "note": "Used by the home story section."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_14 PM-4.png",
+      "role": "travel",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": null,
+      "maxWidth": null,
+      "used": false,
+      "note": "No matching category exists; user chose existing categories only."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_15 PM-5.png",
+      "role": "motion",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": "frontend/public/assets/home-story/motion.webp",
+      "maxWidth": 720,
+      "outputWidth": 720,
+      "outputHeight": 540,
+      "outputBytes": 70584,
+      "used": true,
+      "note": "Used by the home story section."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_16 PM-6.png",
+      "role": "advertising",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": "frontend/public/assets/home-story/advertising.webp",
+      "maxWidth": 720,
+      "outputWidth": 720,
+      "outputHeight": 540,
+      "outputBytes": 130376,
+      "used": true,
+      "note": "Used by the home story section."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_17 PM-7.png",
+      "role": "sports",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": "frontend/public/assets/home-story/sports.webp",
+      "maxWidth": 720,
+      "outputWidth": 720,
+      "outputHeight": 540,
+      "outputBytes": 133836,
+      "used": true,
+      "note": "Used by the home story section."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_18 PM-8.png",
+      "role": "gaming",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": null,
+      "maxWidth": null,
+      "used": false,
+      "note": "No matching category exists; user chose existing categories only."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_19 PM-9.png",
+      "role": "drone",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": null,
+      "maxWidth": null,
+      "used": false,
+      "note": "No matching category exists; user chose existing categories only."
+    },
+    {
+      "source": "design/fix2/ChatGPT Image Oct 18, 2026, 08_33_20 PM-10.png",
+      "role": "documentary",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparent": true,
+      "destination": null,
+      "maxWidth": null,
+      "used": false,
+      "note": "No matching category exists; user chose existing categories only."
+    },
+    {
+      "source": "design/fix2/Neon Cyberpunk Hero and Persian UI (1).png",
+      "role": "composition-reference-only",
+      "width": 1672,
+      "height": 941,
+      "transparent": false,
+      "destination": null
+    },
+    {
+      "source": "frontend/public/assets/backgrounds/city-background-small.webp",
+      "role": "existing-section-background",
+      "destination": "/assets/backgrounds/city-background-small.webp"
+    },
+    {
+      "source": "frontend/public/assets/portfolio/project-01.webp",
+      "role": "anime",
+      "destination": "/assets/portfolio/project-01.webp",
+      "note": "Existing sixth category; higher-resolution anime artwork from existing site assets.",
+      "used": true,
+      "width": 630,
+      "height": 420,
+      "transparent": false
+    }
+  ]
+}

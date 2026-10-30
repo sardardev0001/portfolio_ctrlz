@@ -1,0 +1,8 @@
+[Unit]
+Description=Check CTRLZ abandoned uploads hourly
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=5m
+Persistent=true
+[Install]
+WantedBy=timers.target

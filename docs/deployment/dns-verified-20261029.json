@@ -1,0 +1,14 @@
+{
+  "domain": "ctrtlzweb.ir",
+  "verified_on": "2026-10-29",
+  "public_ns_resolver": "1.1.1.1",
+  "public_nameservers": ["ns1.hostiran.net", "ns2.hostiran.net"],
+  "public_a_resolver": "8.8.8.8",
+  "public_a": "213.176.28.154",
+  "authoritative_servers_queried": ["37.27.81.177", "5.144.130.130"],
+  "soa_serial_on_both_servers": 2026102901,
+  "www_cname": "ctrtlzweb.ir",
+  "www_resolves_to": "213.176.28.154",
+  "application_publicly_running": false,
+  "public_https_verified": false
+}

@@ -1,0 +1,12 @@
+{
+  "environment": "public VPS HTTPS with valid certificate",
+  "checks": [
+    "public and admin routes: 200 over public HTTPS with a trusted certificate",
+    "admin login and Secure/HttpOnly cookie",
+    "authenticated dashboard",
+    "project create, edit, delete",
+    "unauthenticated upload rejected",
+    "Django static files through ingress",
+    "admin logout invalidates browser session"
+  ]
+}

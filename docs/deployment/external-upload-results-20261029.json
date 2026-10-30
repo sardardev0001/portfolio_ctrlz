@@ -1,0 +1,21 @@
+{
+  "origin": "https://ctrtlzweb.ir",
+  "large_client": "external development computer",
+  "checks": [
+    {
+      "name": "short.mp4",
+      "status": 201
+    },
+    {
+      "name": "too-long.mp4",
+      "status": 422
+    },
+    {
+      "name": "corrupt.mp4",
+      "status": 422
+    },
+    {
+      "name": "image upload and public download"
+    }
+  ]
+}

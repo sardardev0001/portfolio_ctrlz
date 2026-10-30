@@ -1,0 +1,8 @@
+[Unit]
+Description=Reclaim only expired CTRLZ temporary upload files
+After=docker.service
+Requires=docker.service
+[Service]
+Type=oneshot
+UMask=0077
+ExecStart=/bin/bash /usr/local/sbin/ctrlz-cleanup-uploads

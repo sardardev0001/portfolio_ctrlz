@@ -1,0 +1,19 @@
+{
+  "name": "ctrlz-workspace",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "lint": "pnpm --dir frontend lint",
+    "test": "pnpm --dir frontend test"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.0"
+  },
+  "lint-staged": {
+    "frontend/src/**/*.{ts,tsx,css}": [
+      "pnpm --dir frontend exec prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@11.25.0"
+}

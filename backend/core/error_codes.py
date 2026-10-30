@@ -1,0 +1,16 @@
+"""Stable public API error identifiers; clients must branch on codes, not text."""
+
+from enum import StrEnum
+
+
+class ErrorCode(StrEnum):
+    VALIDATION_ERROR = "VALIDATION_ERROR"
+    AUTH_REQUIRED = "AUTH_REQUIRED"
+    AUTH_FAILED = "AUTH_FAILED"
+    FORBIDDEN = "FORBIDDEN"
+    NOT_FOUND = "NOT_FOUND"
+    RATE_LIMITED = "RATE_LIMITED"
+    METHOD_NOT_ALLOWED = "METHOD_NOT_ALLOWED"
+    INVALID_REQUEST = "INVALID_REQUEST"
+    REQUEST_FAILED = "REQUEST_FAILED"
+    INTERNAL_ERROR = "INTERNAL_ERROR"

@@ -1,0 +1,673 @@
+[
+  {
+    "name": "character-home.webp",
+    "source_index": 1,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_04 PM-1.png",
+    "usage": "Home dominant right-side character",
+    "crop": null,
+    "width": 1024,
+    "height": 1536,
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "bytes": 225434
+  },
+  {
+    "name": "logo-main.webp",
+    "source_index": 2,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_07 PM-2.png",
+    "usage": "Global/Home white and yellow logo artwork",
+    "crop": null,
+    "width": 1200,
+    "height": 400,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 142374
+  },
+  {
+    "name": "nav-about-art.webp",
+    "source_index": 3,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_08 PM-3.png",
+    "usage": "Home About card artwork only; card text/frame remain HTML",
+    "crop": null,
+    "width": 720,
+    "height": 540,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 118312
+  },
+  {
+    "name": "nav-portfolio-art.webp",
+    "source_index": 4,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_11 PM-4.png",
+    "usage": "Home Portfolio card artwork only",
+    "crop": null,
+    "width": 720,
+    "height": 540,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 92322
+  },
+  {
+    "name": "nav-contact-art.webp",
+    "source_index": 5,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_12 PM-5.png",
+    "usage": "Home Contact card artwork only",
+    "crop": null,
+    "width": 720,
+    "height": 540,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 101240
+  },
+  {
+    "name": "premiere-billboard.webp",
+    "source_index": 6,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_13 PM-6.png",
+    "usage": "Decorative software billboard",
+    "crop": null,
+    "width": 500,
+    "height": 500,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 62388
+  },
+  {
+    "name": "brand-edit-moment.webp",
+    "source_index": 7,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_16 PM-7.png",
+    "usage": "Decorative branded editing artwork",
+    "crop": null,
+    "width": 620,
+    "height": 775,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 178628
+  },
+  {
+    "name": "film-reel.webp",
+    "source_index": 8,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_17 PM-8.png",
+    "usage": "Foreground film reel decoration",
+    "crop": null,
+    "width": 600,
+    "height": 600,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 88280
+  },
+  {
+    "name": "logo-contact.webp",
+    "source_index": 13,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 10_56_55 PM-1.png",
+    "usage": "Contact logo graphic variant",
+    "crop": null,
+    "width": 1000,
+    "height": 750,
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "bytes": 214780
+  },
+  {
+    "name": "character-contact.webp",
+    "source_index": 14,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 10_56_56 PM-2.png",
+    "usage": "Contact seated character",
+    "crop": null,
+    "width": 950,
+    "height": 1187,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 205220
+  },
+  {
+    "name": "billboard-contact.webp",
+    "source_index": 15,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 10_56_58 PM-3.png",
+    "usage": "Contact neon billboard artwork",
+    "crop": null,
+    "width": 600,
+    "height": 800,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 155456
+  },
+  {
+    "name": "contact-workstation.webp",
+    "source_index": 21,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 10_57_04 PM-9.png",
+    "usage": "Contact foreground laptop/headphones/film reel",
+    "crop": null,
+    "width": 1100,
+    "height": 825,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 224632
+  },
+  {
+    "name": "city-monitors-contact.webp",
+    "source_index": 22,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 10_57_05 PM-10.png",
+    "usage": "Contact transparent cyberpunk building layer",
+    "crop": null,
+    "width": 1200,
+    "height": 900,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 332914
+  },
+  {
+    "name": "logo-resume.webp",
+    "source_index": 23,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_02_15 PM-1.png",
+    "usage": "Resume logo variant",
+    "crop": null,
+    "width": 1000,
+    "height": 750,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 144132
+  },
+  {
+    "name": "character-about.webp",
+    "source_index": 24,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_02_16 PM-2.png",
+    "usage": "About/Resume positive gesture character",
+    "crop": null,
+    "width": 950,
+    "height": 1267,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 275514
+  },
+  {
+    "name": "character-resume.webp",
+    "source_index": 24,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_02_16 PM-2.png",
+    "usage": "Resume positive gesture character",
+    "crop": null,
+    "width": 950,
+    "height": 1267,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 275514
+  },
+  {
+    "name": "city-monitors-resume.webp",
+    "source_index": 25,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_02_17 PM-3.png",
+    "usage": "Resume transparent building/screen layer",
+    "crop": null,
+    "width": 1200,
+    "height": 900,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 308476
+  },
+  {
+    "name": "billboard-resume.webp",
+    "source_index": 26,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_02_18 PM-4.png",
+    "usage": "Resume neon billboard",
+    "crop": null,
+    "width": 600,
+    "height": 900,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 145242
+  },
+  {
+    "name": "logo-skills.webp",
+    "source_index": 33,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_22 PM-1.png",
+    "usage": "Skills logo variant",
+    "crop": null,
+    "width": 1000,
+    "height": 750,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 198672
+  },
+  {
+    "name": "character-skills.webp",
+    "source_index": 34,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_23 PM-2.png",
+    "usage": "Skills thumbs-up character",
+    "crop": null,
+    "width": 950,
+    "height": 1425,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 270992
+  },
+  {
+    "name": "editing-studio.webp",
+    "source_index": 35,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_24 PM-3.png",
+    "usage": "Skills hero studio artwork",
+    "crop": null,
+    "width": 1200,
+    "height": 900,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 292220
+  },
+  {
+    "name": "filmstrip-skills.webp",
+    "source_index": 36,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_25 PM-4.png",
+    "usage": "Skills branded cinematic filmstrip graphic",
+    "crop": null,
+    "width": 700,
+    "height": 933,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 224926
+  },
+  {
+    "name": "billboard-skills.webp",
+    "source_index": 37,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_26 PM-5.png",
+    "usage": "Skills billboard artwork",
+    "crop": null,
+    "width": 600,
+    "height": 800,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 165294
+  },
+  {
+    "name": "logo-portfolio.webp",
+    "source_index": 43,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_15 PM-1.png",
+    "usage": "Portfolio logo variant",
+    "crop": null,
+    "width": 1000,
+    "height": 750,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 231240
+  },
+  {
+    "name": "character-portfolio.webp",
+    "source_index": 44,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_16 PM-2.png",
+    "usage": "Portfolio pointing character",
+    "crop": null,
+    "width": 950,
+    "height": 1267,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 260796
+  },
+  {
+    "name": "filmstrip-portfolio.webp",
+    "source_index": 45,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_17 PM-3.png",
+    "usage": "Portfolio hero filmstrip and editor graphic",
+    "crop": null,
+    "width": 1200,
+    "height": 900,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 340372
+  },
+  {
+    "name": "billboard-portfolio.webp",
+    "source_index": 46,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_20 PM-4.png",
+    "usage": "Portfolio billboard artwork",
+    "crop": null,
+    "width": 600,
+    "height": 800,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 172448
+  },
+  {
+    "name": "city-background.webp",
+    "source_index": 55,
+    "original": "design\\Neon Ruins at Sunset.png",
+    "usage": "Global city background, contains no website UI",
+    "crop": null,
+    "width": 1672,
+    "height": 941,
+    "alpha_extrema": null,
+    "bytes": 401294
+  },
+  {
+    "name": "project-hero-journey.webp",
+    "source_index": 47,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_21 PM-5.png",
+    "usage": "Project: سفر قهرمان; cropped artwork excluding badge/play/duration/title",
+    "crop": [
+      520,
+      190,
+      1150,
+      610
+    ],
+    "width": 630,
+    "height": 420,
+    "alpha_extrema": [
+      248,
+      254
+    ],
+    "bytes": 84560
+  },
+  {
+    "name": "project-beyond-choice.webp",
+    "source_index": 48,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_23 PM-6.png",
+    "usage": "Project: فراتر از یک انتخاب; artwork crop",
+    "crop": [
+      535,
+      200,
+      1180,
+      620
+    ],
+    "width": 645,
+    "height": 420,
+    "alpha_extrema": [
+      249,
+      254
+    ],
+    "bytes": 126192
+  },
+  {
+    "name": "project-brand-intro.webp",
+    "source_index": 49,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_24 PM-7.png",
+    "usage": "Project: معرفی برند; artwork crop retaining Ae as graphic subject",
+    "crop": [
+      110,
+      215,
+      1335,
+      725
+    ],
+    "width": 1200,
+    "height": 500,
+    "alpha_extrema": [
+      247,
+      254
+    ],
+    "bytes": 243302
+  },
+  {
+    "name": "project-game-spirit.webp",
+    "source_index": 50,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_25 PM-8.png",
+    "usage": "Project: روح بازی; artwork crop",
+    "crop": [
+      575,
+      165,
+      1180,
+      580
+    ],
+    "width": 605,
+    "height": 415,
+    "alpha_extrema": [
+      250,
+      254
+    ],
+    "bytes": 74808
+  },
+  {
+    "name": "project-life-road.webp",
+    "source_index": 51,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_26 PM-9.png",
+    "usage": "Project: زندگی در مسیر; inner artwork excluding decorative frame",
+    "crop": [
+      80,
+      240,
+      1370,
+      790
+    ],
+    "width": 1200,
+    "height": 512,
+    "alpha_extrema": [
+      247,
+      254
+    ],
+    "bytes": 218784
+  },
+  {
+    "name": "project-inner-shadows.webp",
+    "source_index": 54,
+    "original": "design\\Neon Editor Portfolio_ About Me (1).png",
+    "usage": "Project: سایه‌های درون; artwork-only anime crop from About reference",
+    "crop": [
+      1077,
+      690,
+      1234,
+      789
+    ],
+    "width": 157,
+    "height": 99,
+    "alpha_extrema": null,
+    "bytes": 5550
+  },
+  {
+    "name": "project-detail-power.webp",
+    "source_index": 9,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 10_12_37 PM-1.png",
+    "usage": "Project: قدرت در جزئیات; central perfume artwork crop, no UI",
+    "crop": [
+      470,
+      698,
+      640,
+      760
+    ],
+    "width": 170,
+    "height": 62,
+    "alpha_extrema": null,
+    "bytes": 5284
+  },
+  {
+    "name": "project-social.webp",
+    "source_index": 41,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_32 PM-9.png",
+    "usage": "Project: شبکه‌های اجتماعی; platform montage artwork crop",
+    "crop": [
+      195,
+      155,
+      1250,
+      510
+    ],
+    "width": 1000,
+    "height": 336,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 90546
+  },
+  {
+    "name": "project-no-limits.webp",
+    "source_index": 9,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 10_12_37 PM-1.png",
+    "usage": "Project: بدون محدودیت; gym artwork crop, no UI",
+    "crop": [
+      1080,
+      700,
+      1280,
+      757
+    ],
+    "width": 200,
+    "height": 57,
+    "alpha_extrema": null,
+    "bytes": 4180
+  },
+  {
+    "name": "project-unknown-roads.webp",
+    "source_index": 52,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_08_27 PM-10.png",
+    "usage": "Project: جاده‌های ناشناخته; motorcycle artwork crop",
+    "crop": [
+      575,
+      190,
+      1155,
+      620
+    ],
+    "width": 580,
+    "height": 430,
+    "alpha_extrema": [
+      248,
+      254
+    ],
+    "bytes": 78622
+  },
+  {
+    "name": "skill-color-art.webp",
+    "source_index": 38,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_28 PM-6.png",
+    "usage": "Skill color grading: graphic workstation crop only",
+    "crop": [
+      220,
+      155,
+      1220,
+      440
+    ],
+    "width": 1000,
+    "height": 285,
+    "alpha_extrema": [
+      250,
+      254
+    ],
+    "bytes": 75072
+  },
+  {
+    "name": "skill-story-art.webp",
+    "source_index": 39,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_30 PM-7.png",
+    "usage": "Skill storytelling: graphic film strip crop only",
+    "crop": [
+      410,
+      120,
+      1280,
+      485
+    ],
+    "width": 870,
+    "height": 365,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 79120
+  },
+  {
+    "name": "skill-motion-art.webp",
+    "source_index": 3,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 05_01_08 PM-3.png",
+    "usage": "Skill motion: existing blue editor illustration",
+    "crop": null,
+    "width": 720,
+    "height": 540,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 118312
+  },
+  {
+    "name": "skill-social-art.webp",
+    "source_index": 41,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_32 PM-9.png",
+    "usage": "Skill social montage crop only",
+    "crop": [
+      195,
+      155,
+      1250,
+      510
+    ],
+    "width": 1000,
+    "height": 336,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 90546
+  },
+  {
+    "name": "skill-sound-art.webp",
+    "source_index": 42,
+    "original": "design\\ChatGPT Image Oct 13, 2026, 11_05_33 PM-10.png",
+    "usage": "Skill sound: headphone/waveform artwork crop only",
+    "crop": [
+      175,
+      100,
+      1240,
+      465
+    ],
+    "width": 1000,
+    "height": 343,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 96022
+  },
+  {
+    "name": "city-background-small.webp",
+    "source_index": 55,
+    "original": "design\\Neon Ruins at Sunset.png",
+    "usage": "Lower bandwidth responsive global background",
+    "crop": null,
+    "width": 1000,
+    "height": 563,
+    "alpha_extrema": null,
+    "bytes": 159810
+  }
+]

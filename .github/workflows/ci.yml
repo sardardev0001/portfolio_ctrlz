@@ -1,0 +1,56 @@
+name: CI
+on:
+  push:
+    branches-ignore: [main]
+  pull_request:
+  workflow_call:
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with: {version: '0.13.1', python-version: '3.12'}
+      - run: uv sync --project backend --locked
+      - run: uv run --project backend --locked ruff check backend && uv run --project backend --locked ruff format --check backend
+      - run: PYTHONPATH=backend uv run --project backend --locked mypy --config-file backend/pyproject.toml backend/core backend/config backend/domains
+      - run: POSTGRES_HOST= S3_ENDPOINT_URL= uv run --project backend --locked pytest backend/tests -q
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: {version: '11.25.0'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: pnpm, cache-dependency-path: frontend/pnpm-lock.yaml}
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm build
+  e2e:
+    runs-on: ubuntu-latest
+    needs: [backend, frontend]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with: {version: '0.13.1', python-version: '3.12'}
+      - uses: pnpm/action-setup@v4
+        with: {version: '11.25.0'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: uv sync --project backend --locked
+      - run: pnpm --dir frontend install --frozen-lockfile
+      - run: pnpm --dir frontend exec playwright install --with-deps chromium
+      - name: Generate ephemeral test credential
+        run: python -c "import os,secrets;open(os.environ['GITHUB_ENV'],'a').write('SEED_ADMIN_PASSWORD='+secrets.token_urlsafe(24)+'\n')"
+      - run: uv run --project backend --locked python backend/manage.py migrate && uv run --project backend --locked python backend/manage.py seed
+        env: {POSTGRES_HOST: '', S3_ENDPOINT_URL: ''}
+      - run: uv run --project backend --locked python backend/manage.py runserver 127.0.0.1:8000 > backend.log 2>&1 &
+        env: {POSTGRES_HOST: '', S3_ENDPOINT_URL: ''}
+      - run: pnpm --dir frontend dev > frontend.log 2>&1 &
+      - name: Wait for the website
+        run: for i in $(seq 1 30); do curl -fsS http://127.0.0.1:3000/ >/dev/null && exit 0; sleep 2; done; exit 1
+      - run: pnpm --dir frontend e2e --project=chromium --project=mobile
+        env:
+          E2E_ADMIN_PASSWORD: ${{ env.SEED_ADMIN_PASSWORD }}

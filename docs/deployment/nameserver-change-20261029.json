@@ -1,0 +1,11 @@
+{
+  "domain": "ctrtlzweb.ir",
+  "previous_nameservers_verified_in_irnic": ["ns1.famadns.com", "ns2.famadns.com"],
+  "proposed_nameservers": ["ns1.hostiran.net", "ns2.hostiran.net"],
+  "glue_required": false,
+  "form_prepared": true,
+  "saved": true,
+  "verified_in_irnic": ["ns1.hostiran.net", "ns2.hostiran.net"],
+  "user_confirmation": "explicitly approved by user; updated values already present when IRNIC was read",
+  "security_answer": "User enters only in IRNIC; never recorded here"
+}

@@ -1,0 +1,98 @@
+---
+- name: Deploy tested CTRL.Z release
+  hosts: production
+  gather_facts: false
+  become: true
+  vars:
+    release_id: "{{ lookup('env', 'CTRLZ_RELEASE_ID') }}"
+    artifact_dir: "{{ lookup('env', 'CTRLZ_ARTIFACT_DIR') }}"
+    release_dir: "/srv/ctrlz/releases/{{ release_id }}"
+    incoming_dir: "/srv/ctrlz/shared/incoming"
+  pre_tasks:
+    - name: Verify immutable release identifier and artifact source
+      ansible.builtin.assert:
+        that:
+          - release_id is match('^[a-f0-9]{40}$')
+          - artifact_dir | length > 0
+          - artifact_dir is directory
+    - name: Verify the production environment is already provisioned
+      ansible.builtin.stat:
+        path: /srv/ctrlz/shared/.env.production
+      register: production_env
+    - name: Require the existing private environment
+      ansible.builtin.assert:
+        that:
+          - production_env.stat.exists
+          - production_env.stat.mode == '0600'
+    - name: Verify Docker daemon is available
+      ansible.builtin.command: docker info
+      changed_when: false
+  tasks:
+    - name: Create release directory without touching persistent volumes
+      ansible.builtin.file:
+        path: "{{ release_dir }}"
+        state: directory
+        owner: root
+        group: ctrlz-deploy
+        mode: '0755'
+    - name: Copy immutable source and image archives
+      ansible.builtin.copy:
+        src: "{{ artifact_dir }}/{{ item }}"
+        dest: "{{ incoming_dir }}/{{ release_id }}-{{ item }}"
+        owner: root
+        mode: '0600'
+      loop:
+        - source.tar.gz
+        - images.tar.gz
+    - name: Extract release from the allowlisted source package
+      ansible.builtin.unarchive:
+        src: "{{ incoming_dir }}/{{ release_id }}-source.tar.gz"
+        dest: "{{ release_dir }}"
+        remote_src: true
+        owner: root
+        group: ctrlz-deploy
+    - name: Read extracted release marker
+      ansible.builtin.command:
+        argv: [cat, "{{ release_dir }}/.release-id"]
+      register: release_marker
+      changed_when: false
+    - name: Confirm extracted source matches tested commit
+      ansible.builtin.assert:
+        that:
+          - release_marker.stdout == release_id
+          - lookup('file', artifact_dir + '/release-id') | trim == release_id
+    - name: Import prebuilt, tested Docker images
+      ansible.builtin.shell: >-
+        set -o pipefail;
+        gzip -dc {{ (incoming_dir + '/' + release_id + '-images.tar.gz') | quote }} | docker load
+      args:
+        executable: /bin/bash
+      register: image_import
+      changed_when: true
+    - name: Deploy with the existing backup, migration and health gates
+      ansible.builtin.command:
+        argv:
+          - bash
+          - "{{ release_dir }}/ops/deployment/deploy.sh"
+          - --migrations-reviewed
+          - --prebuilt
+      environment:
+        CTRLZ_RELEASE_DIR: "{{ release_dir }}"
+        CTRLZ_MIN_FREE_KIB: '5242880'
+      register: deployment
+      changed_when: true
+    - name: Verify the public HTTPS health endpoint
+      ansible.builtin.uri:
+        url: https://ctrtlzweb.ir/api/v1/health/
+        status_code: 200
+        validate_certs: true
+      delegate_to: localhost
+      become: false
+      register: public_health
+    - name: Remove transferred archives after successful deployment
+      ansible.builtin.file:
+        path: "{{ incoming_dir }}/{{ release_id }}-{{ item }}"
+        state: absent
+      loop:
+        - source.tar.gz
+        - images.tar.gz

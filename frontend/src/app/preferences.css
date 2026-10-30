@@ -1,0 +1,309 @@
+/* The document direction is set in server HTML from the locale cookie. */
+:root {
+  color-scheme: dark;
+  --direction: -1;
+}
+:root[dir="ltr"] {
+  --direction: 1;
+}
+.language-toggle {
+  position: absolute;
+  inset-inline-start: 3vw;
+  top: 50%;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  min-width: 112px;
+  padding: 8px 18px;
+  border: 1px solid var(--neon-blue);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: var(--glow-blue);
+  transform: translateY(-50%);
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+.language-toggle:hover {
+  border-color: var(--neon-yellow);
+  transform: translateY(calc(-50% - 2px));
+}
+.language-toggle:focus-visible,
+.language-toggle[aria-pressed="true"] {
+  border-color: var(--neon-yellow);
+}
+.public-shell {
+  overflow-x: clip;
+}
+.public-shell
+  :where(
+    .hero,
+    .hero-copy,
+    .home-card-grid,
+    .portfolio-grid,
+    .filter-bar,
+    .filter-list,
+    .search-box,
+    .about-features,
+    .about-stats,
+    .about-style-grid,
+    .mastery-header,
+    .specialties-header,
+    .software-card-copy,
+    .specialty-text,
+    .resume-hud,
+    .resume-hud-head,
+    .education-details,
+    .education-header,
+    .resume-about-content,
+    .contact-method-copy
+  ) {
+  direction: inherit;
+}
+.hero-copy,
+.mastery-header > div,
+.specialties-header > div {
+  text-align: start;
+}
+.home-card-copy,
+.contact-form-heading > div {
+  text-align: start;
+}
+.contact-form-heading {
+  direction: inherit;
+}
+.mastery-panel,
+.specialties-panel {
+  padding-block-start: 32px;
+}
+.mastery-header,
+.specialties-header {
+  position: relative;
+  z-index: 2;
+}
+.hero-home h1 {
+  white-space: normal;
+}
+.public-shell :where(h1, h2, h3, p, a, strong, small) {
+  overflow-wrap: anywhere;
+}
+html[lang="en"] .public-shell {
+  font-family: Arial, Vazirmatn, sans-serif;
+}
+html[lang="en"] h1 {
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+html[lang="en"] .hero-body {
+  line-height: 1.7;
+}
+html[dir="ltr"]
+  :where(
+    .back-link > svg,
+    .pagination svg,
+    .home-card-arrow,
+    .contact-send-arrow > svg,
+    .resume-about-content a > svg
+  ) {
+  transform: scaleX(-1);
+}
+.brand-logo {
+  left: auto;
+  right: auto;
+  inset-inline-end: 3vw;
+}
+html[dir="ltr"] .skill-progress span {
+  transform-origin: left;
+}
+.segmented-progress {
+  direction: inherit;
+}
+.page-skills .skill-grid,
+.page-skills .creative-grid {
+  display: grid;
+  direction: inherit;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.page-skills .skill-card {
+  min-height: 160px;
+  align-items: center;
+}
+.page-skills .specialty-card {
+  min-height: 290px;
+}
+.page-skills .specialty-visual {
+  height: 165px;
+}
+.specialties-panel {
+  margin-top: 28px;
+}
+.resume-sections {
+  display: grid;
+  gap: 32px;
+  margin: 24px 3.5vw 40px;
+}
+.resume-section {
+  min-width: 0;
+  scroll-margin-top: 125px;
+}
+.education-sections {
+  display: grid;
+  gap: 24px;
+}
+.resume-section > .resume-hud {
+  height: auto;
+}
+.resume-section .education-grid {
+  grid-template-columns: 0.5fr 1.3fr 1fr;
+}
+.style-link {
+  display: block;
+  position: relative;
+  height: 100%;
+}
+.about-style-card:focus-within {
+  outline: 3px solid var(--neon-yellow);
+  outline-offset: 4px;
+}
+.portfolio-hud.project-card {
+  position: relative;
+}
+.project-card::before,
+.project-card::after,
+.project-poster::before,
+.project-poster::after {
+  pointer-events: none;
+}
+.portfolio-hud.project-card > a {
+  position: static;
+}
+.project-hit-area {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+}
+.portfolio-hud:focus-within .project-poster img {
+  transform: scale(1.04);
+}
+.portfolio-hud:focus-within .project-play {
+  opacity: 1;
+}
+.portfolio-hud:focus-within {
+  outline: 3px solid var(--neon-yellow);
+  outline-offset: 4px;
+}
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 6px;
+}
+.footer-socials a:hover {
+  color: var(--neon-cyan);
+}
+@media (max-width: 1100px) {
+  .desktop-nav {
+    display: none;
+  }
+  .site-header {
+    justify-content: flex-start;
+    gap: 10px;
+    padding-inline: 20px;
+  }
+  .language-toggle {
+    position: relative;
+    inset-inline-start: auto;
+    top: auto;
+    transform: none;
+  }
+  .language-toggle:hover {
+    transform: translateY(-2px);
+  }
+  .mobile-menu-toggle {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .mobile-nav {
+    display: grid;
+    position: absolute;
+    top: 100%;
+    inset-inline: 16px;
+    padding: 16px;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--neon-blue);
+    box-shadow: var(--glow-blue);
+  }
+  .mobile-nav a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .page-skills .skill-grid,
+  .page-skills .creative-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .language-toggle {
+    min-width: 100px;
+    padding-inline: 10px;
+  }
+  .brand-logo {
+    inset-inline-end: 16px;
+    width: 122px;
+  }
+  .page-skills .skill-grid,
+  .page-skills .creative-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .resume-section .education-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .resume-section .education-image-frame {
+    min-height: 180px;
+  }
+  .hero-copy {
+    padding-top: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .public-shell *,
+  .public-shell *::before,
+  .public-shell *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .public-shell
+    :is(
+      .page-transition,
+      .skill-card,
+      .info-card,
+      .style-card,
+      .resume-hud,
+      .education-card,
+      .specialty-card
+    ) {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

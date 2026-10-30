@@ -1,0 +1,44 @@
+{
+  "origin": "https://ctrtlzweb.ir",
+  "large_client": "VPS public HTTPS ingress",
+  "checks": [
+    {
+      "name": "short.mp4",
+      "status": 201
+    },
+    {
+      "name": "too-long.mp4",
+      "status": 422
+    },
+    {
+      "name": "corrupt.mp4",
+      "status": 422
+    },
+    {
+      "name": "image upload and public download"
+    },
+    {
+      "name": "100000000 bytes / 30s",
+      "status": 201,
+      "seconds_elapsed": 6.57
+    },
+    {
+      "name": "900000000 bytes / 90s",
+      "status": 201,
+      "seconds_elapsed": 75.26
+    },
+    {
+      "name": "1073741824 bytes / 120s",
+      "status": 201,
+      "seconds_elapsed": 96.11
+    },
+    {
+      "name": "1073741825 bytes / 120s",
+      "status": 413,
+      "seconds_elapsed": 80.47
+    },
+    {
+      "name": "cancelled partial upload creates no media record"
+    }
+  ]
+}

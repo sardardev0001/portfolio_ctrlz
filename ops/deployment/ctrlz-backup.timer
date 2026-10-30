@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily CTRL.Z backup at 03:30 Tehran time
+
+[Timer]
+OnCalendar=*-*-* 03:30:00 Asia/Tehran
+Persistent=true
+RandomizedDelaySec=120
+Unit=ctrlz-backup.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,8 @@
+{
+  "archive_sha256_verified": true,
+  "gzip_and_tar_readable": true,
+  "snapshot_members_verified": 21,
+  "media_blobs_sha256_verified": 4,
+  "archive_bytes": 1307506,
+  "secrets_printed": false
+}

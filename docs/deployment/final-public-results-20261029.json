@@ -1,0 +1,9 @@
+{
+  "origin": "https://ctrtlzweb.ir",
+  "checks": [
+    "published video/project visible publicly and anonymous Range 206 from external computer",
+    "edit project preserves existing video relationship",
+    "disposable test data removed; original 12 projects and 2 media records preserved",
+    "HTML has no HTTP media/script URLs; 12 Next assets loaded over HTTPS"
+  ]
+}

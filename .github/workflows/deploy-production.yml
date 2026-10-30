@@ -1,0 +1,64 @@
+name: Deploy production
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ctrlz-production
+  cancel-in-progress: false
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+  deploy:
+    needs: ci
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify deployment credentials are configured
+        env:
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_SSH_HOST_KEY: ${{ secrets.DEPLOY_SSH_HOST_KEY }}
+        run: |
+          test -n "$DEPLOY_HOST" && test -n "$DEPLOY_SSH_KEY" && test -n "$DEPLOY_SSH_HOST_KEY"
+          test "$DEPLOY_HOST" = '213.176.28.154'
+      - name: Set up SSH host verification
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_SSH_HOST_KEY: ${{ secrets.DEPLOY_SSH_HOST_KEY }}
+        run: |
+          umask 077
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          printf '%s\n' "$DEPLOY_SSH_HOST_KEY" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+      - name: Install Ansible
+        run: pipx install 'ansible-core>=2.16,<2.17'
+      - name: Build backend image
+        run: docker build -f backend/Dockerfile -t "ctrlz-backend:${GITHUB_SHA}" .
+      - name: Build frontend image
+        run: docker build -f frontend/Dockerfile -t "ctrlz-frontend:${GITHUB_SHA}" .
+      - name: Package the reviewed source and prebuilt images
+        run: |
+          mkdir -p "$RUNNER_TEMP/ctrlz-artifacts"
+          python3 ops/deployment/package-release.py --release "$GITHUB_SHA" --output "$RUNNER_TEMP/ctrlz-artifacts/source.tar.gz"
+          docker save "ctrlz-backend:${GITHUB_SHA}" "ctrlz-frontend:${GITHUB_SHA}" | gzip -1 > "$RUNNER_TEMP/ctrlz-artifacts/images.tar.gz"
+          printf '%s\n' "$GITHUB_SHA" > "$RUNNER_TEMP/ctrlz-artifacts/release-id"
+          cd "$RUNNER_TEMP/ctrlz-artifacts" && sha256sum source.tar.gz images.tar.gz > SHA256SUMS && sha256sum -c SHA256SUMS
+      - name: Deploy with Ansible, backup and HTTPS health verification
+        env:
+          CTRLZ_RELEASE_ID: ${{ github.sha }}
+          CTRLZ_ARTIFACT_DIR: ${{ runner.temp }}/ctrlz-artifacts
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          ANSIBLE_HOST_KEY_CHECKING: 'True'
+        run: |
+          printf '[production]\n%s ansible_user=root\n' "$DEPLOY_HOST" > "$RUNNER_TEMP/ctrlz-artifacts/inventory"
+          ansible-playbook -i "$RUNNER_TEMP/ctrlz-artifacts/inventory" \
+            --private-key "$HOME/.ssh/id_ed25519" \
+            ops/deployment/ansible/deploy.yml

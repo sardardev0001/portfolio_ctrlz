@@ -145,7 +145,7 @@ test("admin auth and CRUD", async ({ page }) => {
   await page.getByRole("link", { name: "پروژه‌ها" }).first().click();
   await expect(page.getByRole("heading", { name: "پروژه‌ها" })).toBeVisible();
   await page.getByRole("button", { name: "افزودن" }).click();
-  await page.getByLabel("عنوان", { exact: true }).fill("E2E draft");
+  await page.getByRole("textbox", { name: "عنوان", exact: true }).fill("E2E draft");
   const slug = `e2e-draft-${Date.now()}`;
   await page.getByLabel("شناسه انگلیسی").fill(slug);
   await page.getByLabel("دسته‌بندی").selectOption({ index: 1 });
@@ -159,7 +159,9 @@ test("admin auth and CRUD", async ({ page }) => {
   await expect(row).toContainText("پیش‌نویس");
   await row.getByRole("button", { name: "ویرایش", exact: true }).click();
   const dialog = page.getByRole("dialog");
-  await dialog.getByLabel("عنوان", { exact: true }).fill("E2E draft edited");
+  await dialog
+    .getByRole("textbox", { name: "عنوان", exact: true })
+    .fill("E2E draft edited");
   await dialog.getByLabel("ترتیب نمایش").fill("25");
   await dialog.getByRole("button", { name: "ذخیره تغییرات" }).click();
   await expect(

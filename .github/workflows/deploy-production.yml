@@ -39,7 +39,10 @@ jobs:
           printf '%s\n' "$DEPLOY_SSH_HOST_KEY" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
       - name: Install Ansible
-        run: pipx install 'ansible-core>=2.19,<2.20'
+        run: |
+          python3 -m venv "$RUNNER_TEMP/ctrlz-ansible"
+          "$RUNNER_TEMP/ctrlz-ansible/bin/python" -m pip install --disable-pip-version-check 'ansible-core>=2.19,<2.20'
+          "$RUNNER_TEMP/ctrlz-ansible/bin/ansible-playbook" --version
       - name: Build backend image
         run: docker build -f backend/Dockerfile -t "ctrlz-backend:${GITHUB_SHA}" .
       - name: Build frontend image
@@ -59,6 +62,6 @@ jobs:
           ANSIBLE_HOST_KEY_CHECKING: 'True'
         run: |
           printf '[production]\n%s ansible_user=root\n' "$DEPLOY_HOST" > "$RUNNER_TEMP/ctrlz-artifacts/inventory"
-          ansible-playbook -i "$RUNNER_TEMP/ctrlz-artifacts/inventory" \
+          "$RUNNER_TEMP/ctrlz-ansible/bin/ansible-playbook" -i "$RUNNER_TEMP/ctrlz-artifacts/inventory" \
             --private-key "$HOME/.ssh/id_ed25519" \
             ops/deployment/ansible/deploy.yml
